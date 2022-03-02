@@ -1,20 +1,20 @@
 import { TreeNode } from './Tree'
 
-function preOrder(head: TreeNode): Array<number | '#'> {
+function preOrder(head: TreeNode): Array<number> {
     const res: number[] = []
     if (!head) return res
-    const queue: TreeNode[] = [head]
+    const stack: TreeNode[] = [head]
     let cur_node: TreeNode
-    while (queue.length) {
-        cur_node = <TreeNode>queue.shift()
+    while (stack.length) {
+        cur_node = <TreeNode>stack.pop()
         res.push(cur_node.value)
-        cur_node.left_node && queue.push(cur_node.left_node)
-        cur_node.right_node && queue.push(cur_node.right_node)
+        cur_node.right_node && stack.push(cur_node.right_node)
+        cur_node.left_node && stack.push(cur_node.left_node)
     }
     return res
 }
 
-function middleOrder(head: TreeNode): Array<number | '#'> {
+function middleOrder(head: TreeNode): Array<number> {
     const res: number[] = []
     if (!head) return res
     const stack: TreeNode[] = [head]
@@ -32,4 +32,32 @@ function middleOrder(head: TreeNode): Array<number | '#'> {
     return res
 }
 
-export { preOrder, middleOrder }
+function postOrder(head: TreeNode): Array<number> {
+    const res: number[] = []
+    if (!head) return res
+    const stack: TreeNode[] = [head]
+    let cur_node: TreeNode
+    while (stack.length) {
+        cur_node = <TreeNode>stack.pop()
+        res.push(cur_node.value)
+        cur_node.left_node && stack.push(cur_node.left_node)
+        cur_node.right_node && stack.push(cur_node.right_node)
+    }
+    return res.reverse()
+}
+
+function sequenceOrder(head: TreeNode): Array<number> {
+    const res: number[] = []
+    if (!head) return res
+    const queue: TreeNode[] = [head]
+    let cur_node: TreeNode
+    while (queue.length) {
+        cur_node = <TreeNode>queue.shift()
+        res.push(cur_node.value)
+        cur_node.left_node && queue.push(cur_node.left_node)
+        cur_node.right_node && queue.push(cur_node.right_node)
+    }
+    return res
+}
+
+export { preOrder, middleOrder, postOrder, sequenceOrder }
