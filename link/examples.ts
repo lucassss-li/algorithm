@@ -1,4 +1,4 @@
-import { LinkNode } from './link'
+import { LinkNode } from './Link'
 
 function hasLoop1(head: LinkNode | null): LinkNode | null {
     const set = new Set<LinkNode>()
