@@ -1,9 +1,18 @@
+/**
+ * @class
+ * @classdesc 树节点
+ */
 class TreeNode {
     public left_node: TreeNode | null = null
     public right_node: TreeNode | null = null
     constructor(public value: number) {}
 }
 
+/**
+ * @function
+ * @param {Array<number | '#'>} arr 节点值数组，字符‘#’表示该位置无节点
+ * @returns {TreeNode} 树的根节点
+ */
 function createTree(arr: Array<number | '#'>): TreeNode {
     const tree: TreeNode[] = []
     for (let index in arr) {

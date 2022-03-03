@@ -1,5 +1,6 @@
 import { TreeNode } from './Tree'
 
+//寻找最低公共节点
 function lowestCommonNode(
     head: TreeNode | null,
     n1: number,
@@ -16,6 +17,7 @@ function lowestCommonNode(
     return left || right
 }
 
+//寻找后继节点
 function findSuccessor(head: TreeNode, n: number): TreeNode | null | undefined {
     let successor: TreeNode | null | undefined = null
     const fatherMap = new Map<TreeNode, TreeNode | null>()

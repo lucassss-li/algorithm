@@ -1,3 +1,4 @@
+//最小生成树kruskal、prim算法
 import { GraphNode, Edge, Graph } from './Graph'
 
 function kruskal(graph: Graph): Edge[] {

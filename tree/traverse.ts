@@ -1,5 +1,8 @@
+//二叉树的（非递归版本）遍历操作
+
 import { TreeNode } from './Tree'
 
+//先序
 function preOrder(head: TreeNode): Array<number> {
     const res: number[] = []
     if (!head) return res
@@ -14,6 +17,7 @@ function preOrder(head: TreeNode): Array<number> {
     return res
 }
 
+//中序
 function middleOrder(head: TreeNode): Array<number> {
     const res: number[] = []
     if (!head) return res
@@ -32,6 +36,7 @@ function middleOrder(head: TreeNode): Array<number> {
     return res
 }
 
+//后序
 function postOrder(head: TreeNode): Array<number> {
     const res: number[] = []
     if (!head) return res
@@ -46,6 +51,7 @@ function postOrder(head: TreeNode): Array<number> {
     return res.reverse()
 }
 
+//层序
 function sequenceOrder(head: TreeNode): Array<number> {
     const res: number[] = []
     if (!head) return res

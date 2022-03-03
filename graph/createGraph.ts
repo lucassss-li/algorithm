@@ -8,7 +8,12 @@ import { GraphNode, Edge, Graph } from './Graph'
 //     [8, -1, 1, -1, -1, 15],
 //     [-1, 7, -1, 10, 15, -1]
 // ]
-
+/**
+ * @function
+ * @description 根据邻接矩阵创建图
+ * @param {number[][]} matrix 邻接矩阵数据
+ * @returns {Graph} 图
+ */
 function matrixToGraph(matrix: number[][]): Graph {
     const graph = new Graph()
     for (let i in matrix) {
@@ -43,7 +48,12 @@ function matrixToGraph(matrix: number[][]): Graph {
 //     [[0, 8],[2, 1],[5, 15]],
 //     [[1, 7],[3, 10],[4, 15]]
 // ]
-
+/**
+ * @function
+ * @description 根据邻接表创建图
+ * @param {Array<[number, number]>[]} list 邻接表数据
+ * @returns {Graph} 图
+ */
 function listToGraph(list: Array<[number, number]>[]): Graph {
     const graph = new Graph()
     for (let i in list) {

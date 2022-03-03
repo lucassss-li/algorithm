@@ -1,3 +1,5 @@
+//判断节点是否有环
+
 import { LinkNode } from './Link'
 
 function hasLoop1(head: LinkNode | null): LinkNode | null {

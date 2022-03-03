@@ -1,5 +1,8 @@
+//二叉树递归套路
+
 import { TreeNode } from './Tree'
 
+//判断是否是搜索二叉树
 function isBST(head: TreeNode) {
     type innerRes = {
         isBst: boolean
@@ -46,6 +49,7 @@ function isBST(head: TreeNode) {
     }
 }
 
+//判断是否是平衡二叉树
 function isAVL(head: TreeNode) {
     type innerRes = {
         isAVL: boolean

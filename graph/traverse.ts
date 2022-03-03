@@ -1,5 +1,6 @@
 import { GraphNode, Graph } from './Graph'
 
+//图的宽度优先遍历
 function BFS(graph: Graph): number[] {
     const res: number[] = []
     const walkedSet = new Set<GraphNode>()
@@ -24,6 +25,7 @@ function BFS(graph: Graph): number[] {
     return res
 }
 
+//图的深度优先遍历
 function DFS(graph: Graph): number[] {
     const res: number[] = []
     const walkedSet = new Set<GraphNode>()

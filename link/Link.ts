@@ -1,8 +1,18 @@
+/**
+ * @class
+ * @classdesc 链表节点
+ */
 class LinkNode {
     public next: LinkNode | null = null
     constructor(public value: number) {}
 }
 
+/**
+ *@function
+ * @description 创建无环单链表
+ * @param {number[]} arr 节点值数组
+ * @returns {LinkNode} 头节点
+ */
 function createLink(arr: number[]) {
     let head = null,
         cur_node = null,
@@ -20,6 +30,12 @@ function createLink(arr: number[]) {
     return head
 }
 
+/**
+ * @function
+ * @description 创建有环单链表
+ * @param {number[]} arr 节点值数组
+ * @returns {LinkNode} 头节点
+ */
 function createLoopLink(arr: number[]) {
     let head = null,
         cur_node = null,
