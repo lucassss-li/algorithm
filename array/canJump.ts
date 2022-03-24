@@ -32,6 +32,3 @@ function canJump2(nums: number[]): boolean {
     }
     return true
 }
-
-const res = canJump2([3, 2, 1, 0, 4])
-console.log(res)
