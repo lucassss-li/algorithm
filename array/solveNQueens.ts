@@ -33,7 +33,3 @@ function solveNQueens(n: number): string[][] {
     }
     return ans
 }
-
-const res = solveNQueens(1)
-
-console.log(res)
