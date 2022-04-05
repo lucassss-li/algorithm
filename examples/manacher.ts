@@ -2,8 +2,8 @@ function manacher(str: string) {
     let max = -Infinity
     str = `#${[...str].join('#')}#`
     const pArr: number[] = []
-    let R: number = -1
-    let C: number = -1
+    let R = -1
+    let C = -1
     for (let i = 0; i < str.length; i++) {
         pArr[i] = i < R ? Math.min(pArr[2 * C - i], R - i) : 1
         while (i + pArr[i] < str.length && i - pArr[i] > -1) {

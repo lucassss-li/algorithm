@@ -23,3 +23,30 @@ function longestPalindrome(s: string): string {
     }
     return ans
 }
+
+function manacher(s: string): string {
+    s = `#${[...s].join('#')}#`
+    let max = 0
+    let C = -1
+    let R = -1
+    const dp: number[] = []
+    for (let i = 0; i < s.length; i++) {
+        dp[i] = i >= R ? 1 : Math.min(R - i, dp[2 * C - i])
+        while (i + dp[i] < s.length && i - dp[i] >= 0) {
+            if (s[i + dp[i]] === s[i - dp[i]]) {
+                dp[i] += 1
+            } else {
+                break
+            }
+        }
+        if (i + dp[i] > R) {
+            R = i + dp[i]
+            C = i
+        }
+        max = dp[max] > dp[i] ? max : i
+    }
+    return s.slice(max - dp[max] + 1, max + dp[max]).replace(/#/g, '')
+}
+
+const res = manacher('a')
+console.log(res)
