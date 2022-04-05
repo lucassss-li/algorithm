@@ -47,6 +47,3 @@ function manacher(s: string): string {
     }
     return s.slice(max - dp[max] + 1, max + dp[max]).replace(/#/g, '')
 }
-
-const res = manacher('a')
-console.log(res)
