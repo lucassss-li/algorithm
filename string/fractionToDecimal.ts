@@ -14,13 +14,8 @@ function fractionToDecimal(numerator: number, denominator: number): string {
     set.add(remain)
     arr.push(remain)
     while (remain) {
-        if (remain > denominator) {
-            ans2 = ans2 + Math.floor(remain / denominator)
-            remain = remain % denominator
-        } else {
-            ans2 = ans2 + Math.floor((remain * 10) / denominator)
-            remain = (remain * 10) % denominator
-        }
+        ans2 = ans2 + Math.floor((remain * 10) / denominator)
+        remain = (remain * 10) % denominator
         if (set.has(remain)) {
             break
         } else {
