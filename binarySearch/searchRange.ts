@@ -1,21 +1,24 @@
 // 34. 在排序数组中查找元素的第一个和最后一个位置
 
 function searchRange(nums: number[], target: number): number[] {
-    function getBorder(nums: number[], target: number, flag: boolean): number {
-        let l = 0
-        let r = nums.length - 1
-        let mid = -1
-        while (l <= r) {
-            mid = l + Math.floor((r - l) / 2)
-            if (flag ? nums[mid] < target : nums[mid] <= target) {
-                l = mid + 1
+    function searchBorder(
+        nums: number[],
+        target: number,
+        flag: boolean
+    ): number {
+        let i = -1
+        let j = nums.length
+        while (j - i > 1) {
+            const mid = i + Math.floor((j - i) / 2)
+            if (flag ? nums[mid] >= target : nums[mid] > target) {
+                j = mid
             } else {
-                r = mid - 1
+                i = mid
             }
         }
-        return flag ? r + 1 : l - 1
+        return flag ? j : i
     }
-    const l = getBorder(nums, target, true)
-    const r = getBorder(nums, target, false)
-    return l <= r ? [l, r] : [-1, -1]
+    const i = searchBorder(nums, target, true)
+    const j = searchBorder(nums, target, false)
+    return i <= j ? [i, j] : [-1, -1]
 }
