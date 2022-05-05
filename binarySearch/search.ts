@@ -1,16 +1,16 @@
 // 704. 二分查找
 
 function search(nums: number[], target: number): number {
-    let l = 0
-    let r = nums.length - 1
-    while (l <= r) {
+    let l = -1
+    let r = nums.length
+    while (r - l > 1) {
         const mid = l + Math.floor((r - l) / 2)
         if (nums[mid] === target) {
             return mid
         } else if (nums[mid] > target) {
-            r = mid - 1
+            r = mid
         } else {
-            l = mid + 1
+            l = mid
         }
     }
     return -1
