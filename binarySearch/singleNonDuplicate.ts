@@ -35,6 +35,3 @@ function singleNonDuplicate(nums: number[]): number {
     }
     return res
 }
-
-const res = _singleNonDuplicate([3,3,7,7,10,11,11])
-console.log(res);
