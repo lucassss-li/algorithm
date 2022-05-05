@@ -1,19 +1,18 @@
 // 69. x 的平方根
 
 function mySqrt(x: number): number {
-    let i = 0
-    let j = x
-    let mid = 0
-    while (i <= j) {
-        mid = i + Math.floor((j - i) / 2)
+    let i = -1
+    let j = x + 1
+    while (j - i > 1) {
+        const mid = i + Math.floor((j - i) / 2)
         const square = mid * mid
         if (square === x) {
             return mid
-        } else if (square < x) {
-            i = mid + 1
+        } else if (square > x) {
+            j = mid
         } else {
-            j = mid - 1
+            i = mid
         }
     }
-    return j
+    return i
 }
