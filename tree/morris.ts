@@ -3,45 +3,45 @@ import { TreeNode } from './Tree'
 function morris(root: TreeNode): void {
     let cur: TreeNode | null = root
     while (cur) {
-        if (cur.left_node) {
-            let mostRight: TreeNode = cur.left_node
-            while (mostRight.right_node && mostRight.right_node !== cur) {
-                mostRight = mostRight.right_node
+        if (cur.left) {
+            let mostRight: TreeNode = cur.left
+            while (mostRight.right && mostRight.right !== cur) {
+                mostRight = mostRight.right
             }
-            if (mostRight.right_node !== cur) {
-                mostRight.right_node = cur
-                cur = cur.left_node
+            if (mostRight.right !== cur) {
+                mostRight.right = cur
+                cur = cur.left
                 continue
             }
-            if (mostRight.right_node === cur) {
-                mostRight.right_node = null
+            if (mostRight.right === cur) {
+                mostRight.right = null
             }
         }
-        cur = cur.right_node
+        cur = cur.right
     }
 }
 
 function preOrder(root: TreeNode): void {
     let cur: TreeNode | null = root
     while (cur) {
-        if (cur.left_node) {
-            let mostRight: TreeNode = cur.left_node
-            while (mostRight.right_node && mostRight.right_node !== cur) {
-                mostRight = mostRight.right_node
+        if (cur.left) {
+            let mostRight: TreeNode = cur.left
+            while (mostRight.right && mostRight.right !== cur) {
+                mostRight = mostRight.right
             }
-            if (mostRight.right_node !== cur) {
-                console.log(cur.value)
-                mostRight.right_node = cur
-                cur = cur.left_node
+            if (mostRight.right !== cur) {
+                console.log(cur.val)
+                mostRight.right = cur
+                cur = cur.left
                 continue
             }
-            if (mostRight.right_node === cur) {
-                mostRight.right_node = null
-                cur = cur.right_node
+            if (mostRight.right === cur) {
+                mostRight.right = null
+                cur = cur.right
             }
         } else {
-            console.log(cur.value)
-            cur = cur.right_node
+            console.log(cur.val)
+            cur = cur.right
         }
     }
 }
@@ -49,24 +49,24 @@ function preOrder(root: TreeNode): void {
 function midOrder(root: TreeNode): void {
     let cur: TreeNode | null = root
     while (cur) {
-        if (cur.left_node) {
-            let mostRight: TreeNode = cur.left_node
-            while (mostRight.right_node && mostRight.right_node !== cur) {
-                mostRight = mostRight.right_node
+        if (cur.left) {
+            let mostRight: TreeNode = cur.left
+            while (mostRight.right && mostRight.right !== cur) {
+                mostRight = mostRight.right
             }
-            if (mostRight.right_node !== cur) {
-                mostRight.right_node = cur
-                cur = cur.left_node
+            if (mostRight.right !== cur) {
+                mostRight.right = cur
+                cur = cur.left
                 continue
             }
-            if (mostRight.right_node === cur) {
-                console.log(cur.value)
-                mostRight.right_node = null
-                cur = cur.right_node
+            if (mostRight.right === cur) {
+                console.log(cur.val)
+                mostRight.right = null
+                cur = cur.right
             }
         } else {
-            console.log(cur.value)
-            cur = cur.right_node
+            console.log(cur.val)
+            cur = cur.right
         }
     }
 }

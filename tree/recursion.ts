@@ -11,39 +11,35 @@ function isBST(head: TreeNode) {
     }
     return inner(head).isBst
     function inner(head: TreeNode): innerRes {
-        const left: innerRes | null = head.left_node
-            ? inner(head.left_node)
-            : null
-        const right: innerRes | null = head.right_node
-            ? inner(head.right_node)
-            : null
+        const left: innerRes | null = head.left ? inner(head.left) : null
+        const right: innerRes | null = head.right ? inner(head.right) : null
         if (left && right) {
             return {
                 isBst:
                     left.isBst &&
                     right.isBst &&
-                    left.maxNum < head.value &&
-                    right.minNum > head.value,
+                    left.maxNum < head.val &&
+                    right.minNum > head.val,
                 maxNum: right.maxNum,
                 minNum: left.minNum
             }
         } else if (left) {
             return {
-                isBst: left.isBst && left.maxNum < head.value,
-                maxNum: head.value,
+                isBst: left.isBst && left.maxNum < head.val,
+                maxNum: head.val,
                 minNum: left.minNum
             }
         } else if (right) {
             return {
-                isBst: right.isBst && right.minNum > head.value,
+                isBst: right.isBst && right.minNum > head.val,
                 maxNum: right.maxNum,
-                minNum: head.value
+                minNum: head.val
             }
         } else {
             return {
                 isBst: true,
-                maxNum: head.value,
-                minNum: head.value
+                maxNum: head.val,
+                minNum: head.val
             }
         }
     }
@@ -63,8 +59,8 @@ function isAVL(head: TreeNode) {
                 h: 0
             }
         }
-        const left: innerRes = inner(head.left_node)
-        const right: innerRes = inner(head.right_node)
+        const left: innerRes = inner(head.left)
+        const right: innerRes = inner(head.right)
         return {
             isAVL: left.isAVL && right.isAVL && Math.abs(left.h - right.h) <= 1,
             h: (left.h > right.h ? left.h : right.h) + 1
