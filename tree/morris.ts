@@ -71,4 +71,44 @@ function midOrder(root: TreeNode): void {
     }
 }
 
-export { morris, preOrder, midOrder }
+function postOrder(root: TreeNode | null): void {
+    if (!root) return
+    let cur: TreeNode | null = root
+    const ans: number[] = []
+    while (cur) {
+        if (cur.left) {
+            const mostRight = findMostRight(cur.left, cur)
+            if (mostRight.right === null) {
+                mostRight.right = cur
+                cur = cur.left
+            } else {
+                mostRight.right = null
+                logRightBorder(cur.left, ans)
+                cur = cur.right
+            }
+        } else {
+            cur = cur.right
+        }
+    }
+    logRightBorder(root, ans)
+    console.log(ans)
+    function findMostRight(node: TreeNode, _node: TreeNode): TreeNode {
+        while (node.right && node.right !== _node) {
+            node = node.right
+        }
+        return node
+    }
+    function logRightBorder(node: TreeNode | null, ans: number[]): void {
+        if (!node) return
+        const arr = []
+        arr.push(node.val)
+        node = node.right
+        while (node) {
+            arr.push(node.val)
+            node = node.right
+        }
+        ans.push(...arr.reverse())
+    }
+}
+
+export { morris, preOrder, midOrder, postOrder }
